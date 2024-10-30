@@ -1,30 +1,41 @@
-class Bangun_Datar {
+class BangunDatar {
+    // Membuat atribut
     double panjang;
     double lebar;
 
-    Bangun_Datar(double Panjang, double Lebar) {
-        this.panjang = Panjang;
-        this.lebar = Lebar;
+    // Membuat constructor
+    public BangunDatar(double panjang, double lebar) {
+        this.panjang = panjang;
+        this.lebar = lebar;
     }
 
-    double HitungLuas() {
-        return panjang * lebar;
+    // Membuat method
+    public void hitungLuas() {
+        double luas = panjang * lebar;
+        System.out.println("Luas: " + luas);
     }
 
-    double HitungKeliling() {
-        return 2 * (this.panjang + this.lebar);
+    public void hitungKeliling() {
+        double keliling = 2 * (panjang + lebar);
+        System.out.println("Keliling: " + keliling);
     }
 
-    void cetakHasil() {
-        System.out.println("Luas = " + HitungLuas());
-        System.out.println("Keliling = " + HitungKeliling());
+    public double cetakHasil() {
+        // Menghitung luas dan keliling
+        hitungLuas();
+        hitungKeliling();
+        
+        // Mengembalikan luas sebagai hasil
+        return panjang * lebar; // return the area
     }
 }
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-        Bangun_Datar bangun = new Bangun_Datar(5, 5);
-        bangun.cetakHasil();
+        
+
+        BangunDatar persegi = new BangunDatar(2, 5);
+        double hasil = persegi.cetakHasil();;
+        //System.out.println("Hasil (Luas): " + hasil);
     }
 }
