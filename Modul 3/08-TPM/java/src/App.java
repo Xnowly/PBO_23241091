@@ -1,110 +1,56 @@
-class Pegawai {
-
-    // Deklarasi variabel privat
-
-    private int gajiPokok;
-
+class Hitung_Gaji_Bersih{
+    private int gaji_pokok;
     private int tunjangan;
+    private double pajak;
 
-    private double pajak; // dalam persen
-
-
-
-    // Setter dan Getter untuk gaji pokok
-
-    public void setGajiPokok(int gajiPokok) {
-
-        this.gajiPokok = gajiPokok;
-
+    //setter untuk gaji pokok
+    public void setGajipokok(int gaji_pokok){
+        this.gaji_pokok = gaji_pokok;
     }
-
-
-
-    public int getGajiPokok() {
-
-        return gajiPokok;
-
+    //getter untuk gaji pokok
+    public int getGajiPokok(){
+        return gaji_pokok; 
     }
-
-
-
-    // Setter dan Getter untuk tunjangan
-
-    public void setTunjangan(int tunjangan) {
-
+    //setter untuk tunjangan
+    public void setTunjangan(int tunjangan){
         this.tunjangan = tunjangan;
-
     }
-
-
-
-    public int getTunjangan() {
-
+    //getter untuk tunjangan
+    public int getTunjangan(){
         return tunjangan;
-
     }
-
-
-
-    // Setter dan Getter untuk pajak (dalam persen)
-
-    public void setPajak(double pajak) {
-
+    //setter untuk pajak
+    public void setPajak(double pajak){
         this.pajak = pajak;
-
     }
-
-
-
-    // Menghitung pajak dalam rupiah
-
-    public double getPajak() {
-
-        return (pajak / 100) * (gajiPokok + tunjangan);
-
+    //getter untuk pajak
+    public double getPajak(){
+        double totalGaji = gaji_pokok + tunjangan;
+        return (pajak/100)*totalGaji;
     }
-
-
-
-    // Metode untuk menghitung dan mencetak gaji bersih
-
-    public void cetakGajiBersih() {
-
-        double gajiKotor = gajiPokok + tunjangan;
-
-        double gajiBersih = gajiKotor - getPajak();
-
-        System.out.printf("Gaji bersih Anda adalah sebesar Rp.%.2f\n", gajiBersih);
-
+    //cetak gaji bersih
+    public void cetakGajiBersih(){
+        double totalGaji = (gaji_pokok + tunjangan) - getPajak();
+        System.out.println("Gaji Bersih Anda adalag sebesar : Rp. " + totalGaji);
     }
-
 }
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+        //inisialisasi objek
+        Hitung_Gaji_Bersih gaji = new Hitung_Gaji_Bersih();
 
+        //menulis gaji pokok
+        gaji.setGajipokok(5000000);
+        //menulis tunjangan
+        gaji.setTunjangan(1000000);
+        //menulis pajak
+        gaji.setPajak(10);
 
+        //cetak gaji bersih
+        gaji.cetakGajiBersih();
+        
 
-public class HitungGajiBersih {
-
-    public static void main(String[] args) {
-
-        Pegawai pegawai = new Pegawai();
-
-
-
-        // Set gaji pokok, tunjangan, dan pajak
-
-        pegawai.setGajiPokok(5000000); // contoh gaji pokok Rp. 5,000,000
-
-        pegawai.setTunjangan(500000);  // contoh tunjangan Rp. 500,000
-
-        pegawai.setPajak(5);          // contoh pajak 5%
-
-
-
-        // Cetak gaji bersih
-
-        pegawai.cetakGajiBersih();
-
+       
     }
-
 }
-
